@@ -1,0 +1,49 @@
+<div>
+  <nav ngbNav class="navbar navbar-light" style="background-color: #e3f2fd">
+    <div class="container ala">
+      <div class="ItemsInciales">
+        <a routerLink="/" class="navbar-brand">Control Clientes</a>
+        <a routerLink="/" class="navbar-brand" *ngIf="isLoggedIn">Inicio</a>
+      </div>
+
+      <div class="left">
+        <li *ngIf="!isLoggedIn" class="nav-item">
+            <a routerLink="/login" class="nav-link logi" routerLinkActive="router-link-activate">
+              <i class="fas fa-user"></i> Login
+            </a>
+        </li>
+        
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a routerLink="/registrarse" class="nav-link logi" routerLinkActive="router-link-activate">
+            <i class="fas fa-user"></i> Registro
+          </a>
+      </li>
+      
+
+
+        <li *ngIf="isLoggedIn" ngbDropdown class="nav-item">
+          <a href (click)="(false)" class="nav-link colu" ngbDropdownToggle>
+            <i class="fas fa-user"></i> Bienvenido {{loggedInUser}}
+          </a>
+          <div ngbDropdownMenu>
+            <button ngbDropdownItem>
+              <a routerLink="/configuracion">
+                <i class="fas fa-cog"></i> Configuracion
+              </a>
+            </button>
+            <button ngbDropdownItem>
+            <li class="nav-item">
+                <a class="salir" (click)="logout()"> 
+                <i class="fas fa-user-times"></i> Salir
+            </a>
+            </li>
+        </button>
+            
+
+           
+          </div>
+        </li>
+      </div>
+    </div>
+  </nav>
+</div>
