@@ -2,10 +2,12 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { map } from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class loginService {
-    constructor(private authService : AngularFireAuth ){}
+    constructor(private authService : AngularFireAuth ,
+                private http : HttpClient){}
 
     login(email:string, password:string){
         return new Promise((resolve, reject) => {
@@ -29,4 +31,5 @@ export class loginService {
             error => reject(error))
         })
 }
-}
+
+}    // login(email:string, password:string){

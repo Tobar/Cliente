@@ -8,6 +8,7 @@ import { FirestoreSettings} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FlashMessagesModule } from 'flash-messages-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,7 +50,8 @@ import { AuthGuard } from './guardianes/auth.guard';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    HttpClientModule
   ],
   providers: [ClienteServico, loginService, AuthGuard],
   bootstrap: [AppComponent]
