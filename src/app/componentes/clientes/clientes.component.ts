@@ -7,75 +7,69 @@ import { NgForm } from '@angular/forms';
 
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
-
 @Component({
   providers: [NgbModalConfig, NgbModal],
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.css']
+  styleUrls: ['./clientes.component.css'],
 })
 export class ClientesComponent implements OnInit {
   [x: string]: any;
   content = '';
 
-  clientes: Cliente[] = [] ;
-  cliente : Cliente = {
+  clientes: Cliente[] = [];
+  cliente: Cliente = {
     nombre: '',
     email: '',
     apellido: '',
-    saldo: 0
+    saldo: 0,
+  };
+  @ViewChild('clienteForm')
+  clienteForm: NgForm = new NgForm([], []);
+
+  @ViewChild('botonCerrar') botonCerrar: ElementRef = new ElementRef({});
+
+  constructor(
+    private clientesServicio: ClienteServico,
+    config: NgbModalConfig,
+    private modalService: NgbModal
+  ) {
+    config.backdrop = 'static';
+    config.keyboard = false;
   }
-  @ViewChild("clienteForm")
-  clienteForm: NgForm = new NgForm([],[]) ;
 
-  @ViewChild("botonCerrar") botonCerrar: ElementRef = new ElementRef({});
- 
-
-  constructor( private clientesServicio: ClienteServico,
-              config: NgbModalConfig, 
-              private modalService: NgbModal) {
-              config.backdrop = 'static';
-              config.keyboard = false;
-
-   }
-
-  ngOnInit(){
-    this.clientesServicio.getClientes().subscribe(
-      clientes => {
+  ngOnInit() {
+    this.clientesServicio.getClientes().subscribe((clientes) => {
       this.clientes = clientes;
-    }
-    )
+    });
   }
 
-  getSaldoTotal(){
+  getSaldoTotal() {
     let saldoTotal: number = 0;
-    if(this.clientes){
-      this.clientes.forEach(cliente =>{
+    if (this.clientes) {
+      this.clientes.forEach((cliente) => {
         saldoTotal += cliente.saldo ? cliente.saldo : 0;
-      })
+      });
     }
     return saldoTotal;
   }
-  agregar({value, valid}:NgForm){
-
-    if(!valid){
-        this['flashMensaje'].show('Por favor llena el formulario correctamente', {
-          cssClass: 'alert-danger', timeout: 4000
-        });
-
+  agregar({ value, valid }: NgForm) {
+    if (!valid) {
+      this['flashMensaje'].show('Por favor llena el formulario correctamente', {
+        cssClass: 'alert-danger',
+        timeout: 4000,
+      });
+    } else {
+      //agregar al nuevo cliente
+      this.clientesServicio.agregarCliente(value);
+      this.clienteForm.resetForm();
+      this.cerrarModal();
+    }
   }
-  else{
-    //agregar al nuevo cliente
-    this.clientesServicio.agregarCliente(value);
-    this.clienteForm.resetForm();
-    this.cerrarModal();
-  }
-  }
-  private cerrarModal(){
+  private cerrarModal() {
     this.botonCerrar.nativeElement.click();
   }
   open(content: any) {
-		this.modalService.open(content);
-	}
+    this.modalService.open(content);
+  }
 }

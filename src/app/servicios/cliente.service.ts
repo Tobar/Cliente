@@ -39,6 +39,7 @@ export class ClienteServico {
   }
   getCliente(id: string) {
     this.clienteDoc = this.db.doc<Cliente>(`clientes/${id}`);
+    
     this.clienteDoc.snapshotChanges().pipe(
       map((accion) => {
         if (accion.payload.exists === false) {

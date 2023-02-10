@@ -4,6 +4,7 @@ import { FlashMessagesService } from 'flash-messages-angular';
 import { FlashMessage } from 'flash-messages-angular/module/flash-message';
 import { loginService } from 'src/app/servicios/login.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private flasMessages : FlashMessagesService,
-              private loginService: loginService) { }
+              private loginService: loginService,
+             ) { }
 
   ngOnInit(): void {
     this.loginService.getAuth().subscribe(auth => {
@@ -35,4 +37,6 @@ export class LoginComponent implements OnInit {
       })
     });
   }
+
+
 }
