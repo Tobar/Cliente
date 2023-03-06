@@ -1,38 +1,21 @@
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-    <h2 class="active">Sign In</h2>
-    <h2 class="inactive underlineHover">Sign Up</h2>
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img
-        src="https://www.w3schools.com/howto/img_avatar2.png"
-        id="icon"
-        alt="User Icon"
-      />
-    </div>
-    <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-      <input
-        type="text"
-        id="login"
-        class="fadeIn second"
-        formControlName="username"
-        placeholder="login"
-      />
-      <input
-        type="text"
-        id="password"
-        class="fadeIn third"
-        name="login"
-        formControlName="password"
-        placeholder="password"
-      />
-      <input type="submit" class="fadeIn fourth" value="Log In" />
-    </form>
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-  </div>
-</div>
+<h2>
+  Login
+</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label for="">Username / Email;</label>
+  <input type="text" formControlName="username" name="Username" placeholder="Enter username or Email">
+  <br>
+  <label for="">Password</label>
+  <input type="password" formControlName="password" name="Password" placeholder="Enter password">
+  <br>
+  <label for="">API</label>
+  <select formControlName="api">
+    <option value="firebase">Firebase</option>
+    <option value="other">Other Api</option>
+  </select>
+  <br>
+  <button type="submit">Login</button>
+</form>
+
+

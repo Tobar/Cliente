@@ -9,6 +9,7 @@ export const environment = {
         appId: "1:943811813026:web:998387af20515ed56c01fb",
         measurementId: "G-NQZGW3SW6Z"
     },
-    backend: "firebase | webapi"
-    
+    back:
+    "https://ultraenvios.azurewebsites.net/api/Authenticate/login"
+
 }

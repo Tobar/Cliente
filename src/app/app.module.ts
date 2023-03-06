@@ -8,6 +8,7 @@ import { FirestoreSettings} from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FlashMessagesModule } from 'flash-messages-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,11 +22,13 @@ import { ConfiguracionComponent } from './componentes/configuracion/configuracio
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 import { ClienteServico } from './servicios/cliente.service';
-//Bootstrap
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { loginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guard';
+import { LoginAzure } from './servicios/loginApi.service';
+import { loginI } from './modelo/login.model';
 import { Login2Component } from './componentes/login2/login2.component';
+import { TablaAzureComponent } from './componentes/tabla-azure/tabla-azure.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { Login2Component } from './componentes/login2/login2.component';
     ConfiguracionComponent,
     NoEncontradoComponent,
     PiePaginaComponent,
-    Login2Component
+    Login2Component,
+    TablaAzureComponent,
   ],
   imports: [
 	  NgbNavModule,
@@ -54,7 +58,7 @@ import { Login2Component } from './componentes/login2/login2.component';
     FlashMessagesModule.forRoot(),
     HttpClientModule
   ],
-  providers: [ClienteServico, loginService, AuthGuard],
+  providers: [ClienteServico, loginService, AuthGuard, LoginAzure],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

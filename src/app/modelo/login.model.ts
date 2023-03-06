@@ -1,4 +1,5 @@
-export interface LoginI{
-  username?: string | null;
-  password?: string | null;
+export class loginI {
+  username?:string;
+  password?:string;
+  
 }

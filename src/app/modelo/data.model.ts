@@ -1,8 +1,7 @@
 export interface RespuestaI {
-  username: string;
-  email: string;
-  password: string;
-  name: string
-  documentNumber: string;
-  contactNumber: string;
+  id : string;
+  nombre: string;
+  apellido?:string;
+  email?:string;
+  saldo?:number;
 }

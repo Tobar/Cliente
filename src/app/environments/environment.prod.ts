@@ -8,5 +8,8 @@ export const environment = {
         messagingSenderId: "943811813026",
         appId: "1:943811813026:web:998387af20515ed56c01fb",
         measurementId: "G-NQZGW3SW6Z"
+    },
+    webapi:{
+        url: "https://ultraenvios.azurewebsites.net/api/Authenticate/register/datos.json"
     }
 }

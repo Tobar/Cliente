@@ -8,15 +8,17 @@ import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TableroComponent } from './componentes/tablero/tablero.component';
 import { AuthGuard } from './guardianes/auth.guard';
+import { TablaAzureComponent } from './componentes/tabla-azure/tabla-azure.component';
 
 const routes: Routes = [
-  {path:'', component: TableroComponent, canActivate: [AuthGuard]},
-  {path: 'login2', component: Login2Component},
+  {path:'', component: TableroComponent},
+  {path: 'log', component: Login2Component},
   {path: 'login', component: LoginComponent},
+  { path: 'tablaAzure', component: TablaAzureComponent },
   {path: 'registrarse', component: RegistroComponent},
-  {path: 'configuracion', component: ConfiguracionComponent, canActivate: [AuthGuard]},
-  {path: 'cliente/editar/:id', component: EditarClienteComponent, canActivate: [AuthGuard]},
-  {path: '**', component: NoEncontradoComponent},
+  {path: 'configuracion', component: ConfiguracionComponent},
+  {path: 'cliente/editar/:id', component: EditarClienteComponent},
+  {path: '**', component: NoEncontradoComponent}
 ];
 
 
