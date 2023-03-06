@@ -129,7 +129,7 @@
             class="invalid-feedback">
             Debe contener al menos 2 o más caracteres
           </div>
-        
+
         </div>
         <div class="form-group">
           <label for="email">Email</label>
@@ -160,6 +160,7 @@
             [(ngModel)]="cliente.saldo"
             [ngClass]="{ 'is-invalid': saldo.errors && saldo.touched }"
             minlength="2"
+
           />
           <div [hidden]="!saldo.errors" class="invalid-feedback">
             El saldo es requerido
