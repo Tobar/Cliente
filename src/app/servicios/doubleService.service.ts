@@ -8,12 +8,12 @@ export class AuthServicio {
   
     private UsuarioNormal: any;
 
-    public finSesion(){
+    public logout(){
         this.UsuarioNormal = null;
         localStorage.removeItem('token');
     }
 
-    public estaLogueado(): boolean{
+    public isLoggedIn(): boolean{
     
         return !!this.UsuarioNormal;
 
