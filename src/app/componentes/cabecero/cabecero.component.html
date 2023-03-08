@@ -8,22 +8,28 @@
 
       <div class="left">
         <li *ngIf="!isLoggedIn" class="nav-item">
-            <a routerLink="/login" class="nav-link logi" routerLinkActive="router-link-activate">
-              <i class="fas fa-user"></i> Login
-            </a>
+          <a
+            routerLink="/login"
+            class="nav-link logi"
+            routerLinkActive="router-link-activate"
+          >
+            <i class="fas fa-user"></i> Login
+          </a>
         </li>
-        
+
         <li *ngIf="!isLoggedIn" class="nav-item">
-          <a routerLink="/registrarse" class="nav-link logi" routerLinkActive="router-link-activate">
+          <a
+            routerLink="/registrarse"
+            class="nav-link logi"
+            routerLinkActive="router-link-activate"
+          >
             <i class="fas fa-user"></i> Registro
           </a>
-      </li>
-      
-
+        </li>
 
         <li *ngIf="isLoggedIn" ngbDropdown class="nav-item">
           <a href (click)="(false)" class="nav-link colu" ngbDropdownToggle>
-            <i class="fas fa-user"></i> Bienvenido {{loggedInUser}}
+            <i class="fas fa-user"></i> Bienvenido {{ loggedInUser }}
           </a>
           <div ngbDropdownMenu>
             <button ngbDropdownItem>
@@ -32,15 +38,12 @@
               </a>
             </button>
             <button ngbDropdownItem>
-            <li class="nav-item">
-                <a class="salir" (click)="logout()"> 
-                <i class="fas fa-user-times"></i> Salir
-            </a>
-            </li>
-        </button>
-            
-
-           
+              <li class="nav-item">
+                <a class="salir" (click)="logout()">
+                  <i class="fas fa-user-times"></i> Salir
+                </a>
+              </li>
+            </button>
           </div>
         </li>
       </div>
