@@ -29,6 +29,7 @@ import { LoginAzure } from './servicios/loginApi.service';
 import { loginI } from './modelo/login.model';
 import { Login2Component } from './componentes/login2/login2.component';
 import { TablaAzureComponent } from './componentes/tabla-azure/tabla-azure.component';
+import { Cabecero2Component } from './componentes/cabecero2/cabecero2.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { TablaAzureComponent } from './componentes/tabla-azure/tabla-azure.compo
     PiePaginaComponent,
     Login2Component,
     TablaAzureComponent,
+    Cabecero2Component,
   ],
   imports: [
 	  NgbNavModule,
