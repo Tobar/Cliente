@@ -1,6 +1,13 @@
-<app-cabecero></app-cabecero>
+<header *ngIf="userLogged">
+  <app-cabecero></app-cabecero>
+</header>
+
+<div *ngIf="!userLogged">
+  <header *ngIf="userApi">
+    <app-cabecero2></app-cabecero2>
+  </header>
+</div>
 
 <router-outlet></router-outlet>
 
 <app-pie-pagina></app-pie-pagina>
-
