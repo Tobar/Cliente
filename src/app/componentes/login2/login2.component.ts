@@ -1,4 +1,3 @@
-// This code is used to redirect the user to a new page after a successful login
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
