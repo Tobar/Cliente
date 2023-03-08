@@ -18,11 +18,11 @@ export class RegistroComponent implements OnInit{
                 private loginService: loginService) { }
   
     ngOnInit(): void {
-      this.loginService.getAuth().subscribe(auth => {
-        if(auth){
-          this.router.navigate(['/']);
-        }
-      })
+      // this.loginService.getAuth().subscribe(auth => {
+      //   if(auth){
+      //     this.router.navigate(['/']);
+      //   }
+      // })
     }
 
     registro(){
